@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hind Siliguri", system-ui, sans-serif;
+  --font-display: "Amiri", "Hind Siliguri", serif;
+  --color-ink: #0e1612;
+  --color-panel: #17241c;
+  --color-line: #314438;
+  --color-ivory: #f3ead8;
+  --color-mist: #b7aa96;
+  --color-gold: #d4b06a;
+  --color-leaf: #8faf86;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-ivory);
+    font-family: var(--font-sans);
+    background-image: radial-gradient(
+      ellipse at top,
+      color-mix(in oklab, var(--color-gold) 18%, transparent),
+      transparent 58%
+    );
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  input[type="range"] {
+    accent-color: var(--color-gold);
+    width: 100%;
+    height: 1.75rem;
+    background: transparent;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    min-height: 2.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-line);
+    background: var(--color-ink);
+    color: var(--color-ivory);
+    padding: 0.65rem 0.9rem;
+    font: inherit;
+  }
+
+  input[type="text"]::placeholder {
+    color: var(--color-mist);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility arabic {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  line-height: 2.2;
+  text-align: right;
+}
